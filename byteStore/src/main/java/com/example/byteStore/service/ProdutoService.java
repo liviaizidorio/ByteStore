@@ -1,4 +1,4 @@
-package com.example.byteStore.service;
+package main.java.com.example.byteStore.service;
 
 import org.springframework.stereotype.Service;
 

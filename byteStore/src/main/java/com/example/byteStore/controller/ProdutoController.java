@@ -1,4 +1,4 @@
-package com.example.byteStore.controller;
+package main.java.com.example.byteStore.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.example.byteStore.dto;
+package main.java.com.example.byteStore.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

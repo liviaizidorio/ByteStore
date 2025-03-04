@@ -1,4 +1,4 @@
-package com.example.byteStore.model;
+package main.java.com.example.byteStore.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,8 +1,11 @@
-package com.example.byteStore.model;
+package main.java.com.example.byteStore.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,6 +23,8 @@ public class Produto {
     private String marca;
     @Column(name = "url_imagem")
     private String urlImagem;
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CarrinhoProduto> itensCarrinho = new ArrayList<>();
     @Column(name = "status_carrinho")
     private String statusCarrinho;
 }
