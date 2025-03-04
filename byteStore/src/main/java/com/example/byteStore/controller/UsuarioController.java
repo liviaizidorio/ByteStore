@@ -1,5 +1,6 @@
 package main.java.com.example.byteStore.controller;
 
+import jakarta.validation.Valid;
 import main.java.com.example.byteStore.dto.UsuarioDtoCreate;
 import main.java.com.example.byteStore.dto.UsuarioDtoUpdate;
 import main.java.com.example.byteStore.model.Usuario;
@@ -20,7 +21,7 @@ public class UsuarioController {
     }
 
     @PostMapping(value = "/")
-    public ResponseEntity<?> cadastrarUsuario(UsuarioDtoCreate usuarioDtoCreate,BindingResult bindingResult){
+    public ResponseEntity<?> cadastrarUsuario(@Valid @RequestBody UsuarioDtoCreate usuarioDtoCreate, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -32,7 +33,7 @@ public class UsuarioController {
     }
     // @PutMapping -> atualizar usuario
     @PutMapping(value = "/{id}")
-    public ResponseEntity<?> atualizarUsuario(@PathVariable(value = "id") int id, UsuarioDtoUpdate usuarioDtoUpdate,BindingResult bindingResult){
+    public ResponseEntity<?> atualizarUsuario(@PathVariable(value = "id") int id,@Valid @RequestBody UsuarioDtoUpdate usuarioDtoUpdate,BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -48,15 +49,12 @@ public class UsuarioController {
     }
     //@GetMapping -> apenas um usuario
     @GetMapping(value = "/{id}")
-    public ResponseEntity<?> mostrarUsuario(@PathVariable(value = "id") int id, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<?> mostrarUsuario(@PathVariable(value = "id") int id){
         Usuario usuarioEncontrado =usuarioService.mostrarUsuario(id);
         if(usuarioEncontrado == null){
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(usuarioEncontrado,HttpStatus.FOUND);
+        return new ResponseEntity<>(usuarioEncontrado,HttpStatus.OK);
     }
 
     //@GetMapping -> listar todos os usuarios
@@ -64,10 +62,7 @@ public class UsuarioController {
 
     //@DeleteMapping -> excluir usuarios
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<?> deletarUsuario(@PathVariable(value = "id") int id, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<?> deletarUsuario(@PathVariable(value = "id") int id){
         Usuario usuarioEncontrado =usuarioService.deletarUsuario(id);
         if(usuarioEncontrado == null){
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);

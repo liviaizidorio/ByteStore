@@ -1,13 +1,13 @@
 package main.java.com.example.byteStore.controller;
 
 import main.java.com.example.byteStore.model.Carrinho;
+import main.java.com.example.byteStore.model.Produto;
 import main.java.com.example.byteStore.service.CarrinhoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/carrinho")
@@ -21,8 +21,8 @@ public class CarrinhoController {
     //}
 
     //atualizar
-    @PutMapping(value = "/")
-    public ResponseEntity<?> atualizarItens(int idProduto, int idQuantidade){
+    @PutMapping(value = "/{idProduto}/{idQuantidade}")
+    public ResponseEntity<?> atualizarItens(@PathVariable(value = "idProduto") int idProduto, @PathVariable(value = "idQuantidade") int idQuantidade){
         Carrinho carrinho = carrinhoService.atualizarItens(idProduto,idQuantidade);
 
         if (carrinho == null){
@@ -30,8 +30,16 @@ public class CarrinhoController {
         }
         return new ResponseEntity<>(carrinho,HttpStatus.OK);
     }
+    @GetMapping(value = "/{idCarrinho}")
+    public ResponseEntity<?> listarItens(@PathVariable(value ="idCarrinho") int idCarrinho){
+        List<Produto> produtos = carrinhoService.listarItens(idCarrinho);
 
-    //listar itens
+        if (produtos == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(produtos,HttpStatus.OK);
+    }
+
     //deletar carrinho
 
 }
