@@ -15,10 +15,10 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_produto")
-    private Long id;
+    private Integer id;
     private String name;
     private double preco;
-    private int estoque;
+    private Integer estoque;
     private String categoria;
     private String marca;
     @Column(name = "url_imagem")

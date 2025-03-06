@@ -1,18 +1,20 @@
 package main.java.com.example.byteStore.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 
 public record ProdutoDtoCreate(
         @NotBlank(message = "O nome é obrigatório")
         String name,
-        @NotBlank(message = "O preco é obrigatório")
+        @Positive(message = "O preço deve ser um valor positivo")
         double preco,
-        @NotBlank(message = "O estoque é obrigatório")
+        @Positive(message = "O estoque deve ser um valor positivo")
         int estoque,
-        @NotBlank(message = "O categoria é obrigatório")
+        @NotBlank(message = "A categoria é obrigatória")
         String categoria,
-        @NotBlank(message = "O marca é obrigatório")
+        @NotBlank(message = "A marca é obrigatória")
         String marca,
-        @NotBlank(message = "O url da imagem é obrigatório")
+        @Pattern(regexp = "^(https?://.*\\.(?:png|jpg|jpeg|gif|bmp|svg))$", message = "A URL da imagem deve ser uma URL válida de um arquivo de imagem")
         String urlImagem) {
 }
