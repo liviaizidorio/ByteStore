@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
+/* começo do header */
+header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #045993;
+    padding: 10px 20px;
+    color: white;
+}
+.logo {
+    width: 55px;
+}
+.conjunto-nome{
+    margin-right: 1000px;
+    display: flex;
+}
+.nome-header{
+    font-size: 24px;
+    padding: 10px;
+}
+.menu{
+    margin-right: 20px;
+}
+.pesquisar-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: white;
+    padding: 3px;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 250px;
+}
+
+input[type="text"] {
+    width: 150px; 
+    padding: 5px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    flex: 1;
+}
+
+.dropdown {
+    background: #FFD700;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 30px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0px 60px 0px 0;
+}
+/* fim do header */
+/* sidebar */
+.sidebar {
+    
+    background-color: #00A3E0 !important;
+    position: fixed;
+    left: -550px;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    transition: left 0.3s ease-in-out; 
+    padding: 20px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99999 !important;
+}
+
+.sidebar h1 {
+    color: white;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.itens {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    margin-top: 50px;
+    padding: 0;
+}
+
+.itens ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+}
+.itens li {
+    margin-bottom: 15px;
+}
+
+.itens a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    position: relative;
+}
+.itens a::after {
+    content: ">";
+    font-size: 18px;
+    position: absolute;
+    right: 10px; 
+}
+#closeBtn {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.menu {
+    cursor: pointer;
+    width: 70px;
+}
+
+/* Componentes página */
+.infoUser{
+    position: relative;
+    top: 130px;
+}
+.user{
+    display: flex;
+    font-size: 30px;
+}
+.user h2{
+    margin-top: 60px;
+}
+.info{
+    margin-left: 50px;
+    margin-top: 70px;
+    font-size: 20px;
+}
+.info span{
+    font-weight: 500;
+}

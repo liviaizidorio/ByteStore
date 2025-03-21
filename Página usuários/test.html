@@ -5,49 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuário</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .profile {
-            text-align: left;
-            max-width: 400px;
-        }
-        .profile img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-        }
-        .profile h2 {
-            display: inline;
-            margin-left: 10px;
-        }
-        .profile p {
-            margin: 10px 0;
-        }
-        .logout {
-            background: yellow;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
+        .profile img{
+            width: 187px;
         }
     </style>
 </head>
 <body>
-    <div class="profile">
-        <img src="https://via.placeholder.com/80" alt="Avatar">
-        <h2>Olá, <span id="username">nome</span>!</h2>
-        <p><strong>Nome:</strong> <span id="name">Beatriz</span></p>
-        <p><strong>E-mail:</strong> <span id="email">b.tmarioti3.0@gmail.com</span></p>
-    </div>
-    <button class="logout" onclick="logout()">Sair</button>
+   
+    
     <script>
         function logout() {
             alert('Você saiu!');
