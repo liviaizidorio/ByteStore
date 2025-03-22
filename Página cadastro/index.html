@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Criar Conta</title>
+</head>
+<body>
+    <div class="container">
+        <div class="lado-um">
+            <h1>Bem vindo!</h1>
+            
+        </div>
+        <div class="lado-dois">
+            <h2>Criar conta</h2>
+            <p>Registre-se com o seu e-mail</p>
+            <form id="formulario-container">
+                <div class="formulario">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" placeholder="Seu nome">
+                </div>
+                <div class="formulario">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Seu e-mail">
+                </div>
+                <div class="formulario">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Sua senha">
+                </div>
+                <button type="submit">Cadastrar-se</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="caixa" id="caixa"></div>
+    <div class="popup" id="popup">
+        <h2>Cadastro Realizado!</h2>
+        <p>Sua conta foi criada com sucesso.</p>
+        <button id="fecha-popup">OK</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
