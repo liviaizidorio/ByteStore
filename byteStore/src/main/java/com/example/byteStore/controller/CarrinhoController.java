@@ -21,9 +21,9 @@ public class CarrinhoController {
     //}
 
     //atualizar
-    @PutMapping(value = "/{idProduto}/{idQuantidade}")
-    public ResponseEntity<?> atualizarItens(@PathVariable(value = "idProduto") int idProduto, @PathVariable(value = "idQuantidade") int idQuantidade){
-        Carrinho carrinho = carrinhoService.atualizarItens(idProduto,idQuantidade);
+    @PutMapping(value = "{idUsuario}/{idProduto}/{idQuantidade}")
+    public ResponseEntity<?> atualizarItens(@PathVariable(value = "idUsuario") int idUsuario,@PathVariable(value = "idProduto") int idProduto, @PathVariable(value = "idQuantidade") int idQuantidade){
+        Carrinho carrinho = carrinhoService.atualizarItens(idUsuario,idProduto,idQuantidade);
 
         if (carrinho == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

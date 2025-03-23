@@ -3,11 +3,15 @@ package main.java.com.example.byteStore.service;
 import main.java.com.example.byteStore.model.Carrinho;
 import main.java.com.example.byteStore.model.CarrinhoProduto;
 import main.java.com.example.byteStore.model.Produto;
+import main.java.com.example.byteStore.model.Usuario;
 import main.java.com.example.byteStore.repository.CarrinhoRepository;
 import main.java.com.example.byteStore.repository.ProdutoRepository;
+import main.java.com.example.byteStore.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -15,25 +19,63 @@ public class CarrinhoService {
     private final CarrinhoRepository carrinhoRepository;
     private final ProdutoRepository produtoRepository;
 
+    private final UsuarioRepository usuarioRepository;
 
-    public CarrinhoService(CarrinhoRepository carrinhoRepository, ProdutoRepository produtoService) {
+
+    public CarrinhoService(CarrinhoRepository carrinhoRepository, ProdutoRepository produtoService, UsuarioRepository usuarioRepository) {
         this.carrinhoRepository = carrinhoRepository;
         this.produtoRepository = produtoService;
+        this.usuarioRepository = usuarioRepository;
     }
 
-    public Carrinho atualizarItens(int idProduto, int quantidade){
+    public Carrinho inicializarCarrinho(int idUsuario){
+        Usuario usuario = usuarioRepository.findById(idUsuario);
+        if (usuario == null){
+            return null;
+        }
+        Carrinho carrinho =carrinhoRepository.findByUsuario(usuario);
+        if (carrinho == null){
+            Carrinho novoCarrinho = new Carrinho();
+            novoCarrinho.setUsuario(usuario);
+            novoCarrinho.setValorTotal(0);
+            novoCarrinho.setItens(new ArrayList<>());
+            return carrinhoRepository.save(novoCarrinho);
+        }
+        return carrinho;
+
+    }
+    public Carrinho atualizarItens(int idUsuario,int idProduto, int quantidade){
         Produto produtoEncontrado = produtoRepository.findById(idProduto);
 
         if (produtoEncontrado == null){
             return null;
         }
+        Carrinho carrinhoExistente = inicializarCarrinho(idUsuario);
+
+        Optional<CarrinhoProduto> itemExistente = carrinhoExistente.getItens()
+                .stream()
+                .filter(item -> item.getProduto().getId().equals(idProduto))
+                .findFirst();
+
+        if (itemExistente.isPresent()){
+            //itemExistente.get().setQuantidade(itemExistente.get().getQuantidade() + quantidade);
+            itemExistente.get().setQuantidade(quantidade);
+        }
+        else {
+            carrinhoExistente.getItens().add(new CarrinhoProduto(carrinhoExistente,produtoEncontrado,quantidade));
+        }
+
+        //carrinho.setValorTotal(carrinho.getItens().stream()
+        //        .mapToDouble(item -> item.getProduto().getPreco() * item.getQuantidade())
+        //        .sum());
+//
+        //return carrinhoRepository.save(carrinho);
         double valor = produtoEncontrado.getPreco()*quantidade;
 
-        var carrinho = new Carrinho();
-        carrinho.adicionarProduto(produtoEncontrado);
-        carrinho.setValorTotal(carrinho.getValorTotal()+valor);
+        //carrinhoExistente.adicionarProduto(produtoEncontrado);
+        carrinhoExistente.setValorTotal(carrinhoExistente.getValorTotal()+valor);
 
-        return carrinhoRepository.save(carrinho);
+        return carrinhoRepository.save(carrinhoExistente);
     }
     public List<Produto> listarItens(int idCarrinhoProduto){
         return carrinhoRepository.findById(idCarrinhoProduto).getItens()
