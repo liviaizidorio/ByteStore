@@ -21,7 +21,7 @@ public class PedidoController {
     public ResponseEntity<?> criarPedido(@RequestParam("idCarrinho") int idCarrinho, @RequestParam("idUsuario") int idUsuario) {
         Pedido pedidoCriado = pedidoService.criarPedido(idCarrinho, idUsuario);
         if (pedidoCriado.getId() == null){
-            return  new ResponseEntity<>(HttpStatus.CONFLICT);
+            return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(pedidoCriado, HttpStatus.CREATED);
     }
@@ -34,9 +34,6 @@ public class PedidoController {
         Pedido pedidoAtualizado =pedidoService.atualizarPedido(id,pedidoDtoUpdate);
         if(pedidoAtualizado == null){
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        if (pedidoAtualizado.getId() == null){
-            return  new ResponseEntity<>(HttpStatus.CONFLICT);
         }
         return new ResponseEntity<>(pedidoAtualizado,HttpStatus.CREATED);
     }

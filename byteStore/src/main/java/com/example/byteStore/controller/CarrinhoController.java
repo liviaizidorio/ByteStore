@@ -3,6 +3,7 @@ package main.java.com.example.byteStore.controller;
 import main.java.com.example.byteStore.model.Carrinho;
 import main.java.com.example.byteStore.model.Produto;
 import main.java.com.example.byteStore.service.CarrinhoService;
+import main.java.com.example.byteStore.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/carrinho")
 public class CarrinhoController {
-    private CarrinhoService carrinhoService;
+    private final CarrinhoService carrinhoService;
+
+    public CarrinhoController(CarrinhoService carrinhoService) {
+        this.carrinhoService = carrinhoService;
+    }
 
     //iniciar
     //@PostMapping(value = "/")
