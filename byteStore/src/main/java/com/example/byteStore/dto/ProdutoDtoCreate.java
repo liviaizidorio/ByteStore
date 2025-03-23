@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Positive;
 
 public record ProdutoDtoCreate(
         @NotBlank(message = "O nome é obrigatório")
-        String name,
+        String nome,
         @Positive(message = "O preço deve ser um valor positivo")
         double preco,
         @Positive(message = "O estoque deve ser um valor positivo")
