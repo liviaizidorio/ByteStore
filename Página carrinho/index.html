@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="menu" id="menuIcon"><img src="/Assets/Icone Menu.png" alt=""></div>
+
+        <div class="conjunto-nome">
+            <img class="logo" src="/Assets/LogoByte.png" alt="">
+            <div class="nome-header"><a href="/Página principal/index.html">ByteStore</a></div>
+        </div>
+        <div class="pesquisar-container">
+            <input type="text" placeholder="Pesquisar">
+        <button class="dropdown">&#9660;</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><img src="/Assets/Icone Pedido.png" alt=""></a></li>
+                <li><a href="/Página carrinho/index.html"><img src="/Assets/Icone Carrinho.png" alt=""></a></li>
+                <li><a href="/Página usuários/index.html"><img src="/Assets/Icone Perfil.png" alt=""></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="cart-container">
+        <h1>Carrinho</h1>
+        <div class="cart-item">
+            <img src="/Assets/Samsung Galaxy S21.png" alt="Samsung Galaxy S21">
+            <div class="cart-item-details">
+                <h3>Samsung Galaxy S21</h3>
+            </div>
+            <div class="cart-item-preco">
+                R$1.529
+                <small>em 10x R$152,90 sem juros</small>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="/Assets/Apple iPhone 13 128GB.png" alt="Apple iPhone 13 128GB">
+            <div class="cart-item-details">
+                <h3>Apple iPhone 13 128GB</h3>
+            </div>
+            <div class="cart-item-preco">
+                R$3.599,10
+                <small>ou 10x de R$ 399,90 sem juros no Cartão</small>
+            </div>
+        </div>
+
+         <div class="cart-item">
+            <img src="/Assets/Acer Swift 3.png" alt="Acer Swift 3">
+            <div class="cart-item-details">
+                <h3>Acer Swift 3</h3>
+            </div>
+            <div class="cart-item-preco">
+                R$1.529
+                <small>em 10x R$152,90 sem juros</small>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="/Assets/Amazon Echo Dot 5ª Geração.png" alt="Amazon Echo Dot 5ª Geração">
+            <div class="cart-item-details">
+                <h3>Amazon Echo Dot 5ª Geração</h3>
+            </div>
+            <div class="cart-item-preco">
+                R$3.599,10
+                <small>ou 10x de R$ 399,90 sem juros no Cartão</small>
+            </div>
+        </div>
+
+          <div class="cart-item">
+            <img src="/Assets/HP Spectre x360.png" alt="HP Spectre x360">
+            <div class="cart-item-details">
+                <h3>HP Spectre x360</h3>
+            </div>
+            <div class="cart-item-preco">
+                R$1.529
+                <small>em 10x R$152,90 sem juros</small>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="/Assets/Motorola Edge 50 Neo.png" alt="Motorola Edge 50 Neo">
+            <div class="cart-item-details">
+                <h3>Motorola Edge 50 Neo</h3>
+            </div>
+            <div class="cart-item-preco">
+                R$3.599,10
+                <small>ou 10x de R$ 399,90 sem juros no Cartão</small>
+            </div>
+        </div>
+
+
+
+        <button class="btn">Compre tudo agora</button>
+        <!-- sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <span id="closeBtn">&times;</span>
+            <h1>Categorias</h1>
+            <div class="itens">
+                <ul>
+                    <li><a href="/Página celulares/index.html">Celulares</a></li>
+                    <li><a href="/Página computadores/index.html">Computadores</a></li>
+                    <li><a href="/Página Televisões/index.html">Televisões</a></li>
+                    <li><a href="/Página relógios/index.html    ">Relógios inteligentes</a></li>
+                    <li><a href="/Página Echo Dots/index.html">Echo Dots</a></li>
+                    <li><a href="/Página fones ouvido/index.html">Fones de ouvido</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="caixa" id="caixa"></div>
+    <div class="popup" id="popup">
+        <h2>Pedido Confirmado!</h2>
+        <p>Okay, produtos já estão no seu pedido indo até você, obrigado pela compra.</p>
+        <button id="close-popup">OK</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
