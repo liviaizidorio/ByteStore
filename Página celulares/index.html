@@ -28,46 +28,61 @@
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <h2>Celulares</h2>
-        <div class="carrossel-container">
-            <div class="carrossel">
-                <div class="carrossel-item">
-                    <img src="/Assets/Samsung Galaxy S21.png" alt="Samsung Galaxy S21">
-                    <h3>Samsung Galaxy S21</h3>
-                    <h4>R$1.529</h4>
-                    <p>em 10x R$152,90 sem juros</p>
+    <div id="all">
+        <div><button class="button-lateral button-lateral-left" id="antes">&lt;</button></div>
+        <div class="container">
+            <h2>Celulares</h2>
+            <div class="carrossel-container">
+                <div class="carrossel">
+                    <div class="carrossel-item">
+                        <div>
+                            <img src="/Assets/Samsung Galaxy S21.png" alt="Samsung Galaxy S21">
+                            <h3>Samsung Galaxy S21</h3>
+                            <h4>R$1.529</h4>
+                            <p>em 10x R$152,90 sem juros</p>
+                        </div>
+                        <button class="bt-comprar">Compre já!</button>
+                    </div>
+                    <div class="carrossel-item">
+                        <div>
+                            <img src="/Assets/Apple iPhone 13 128GB.png" alt="iPhone 13 128GB">
+                            <h3>Apple iPhone 13 128GB</h3>
+                            <h4>R$3.599,10 no Pix</h4>
+                            <p>ou 10x de R$ 399,90 sem juros no Cartão.</p>
+                        </div>
+                        <button class="bt-comprar">Compre já!</button>
+                    </div>
+                    <div class="carrossel-item">
+                        <div>
+                            <img src="/Assets/Motorola Edge 50 Neo.png" alt="Motorola Edge 50 Neo">
+                            <h3>Motorola Edge 50 Neo</h3>
+                            <h4>R$2.159,10 no Pix</h4>
+                            <p>ou 10x de R$ 239,90 sem juros no Cartão</p>
+                        </div>
+                        <button class="bt-comprar">Compre já!</button>
+                    </div>
+                    <div class="carrossel-item">
+                        <div>
+                            <img src="/Assets/Asus Zenfone 9 128GB.png" alt="Asus Zenfone 9 128GB">
+                            <h3>Asus Zenfone 9 128GB</h3>
+                            <h4>R$3.149,10 no Pix</h4>
+                            <p>ou 10x de R$ 349,90 sem juros no Cartão</p>
+                        </div>
+                        <button class="bt-comprar">Compre já!</button>
+                    </div>
+                    <div class="carrossel-item">
+                        <div>
+                            <img src="/Assets/Xiaomi Mi 11 Lite 5G.png" alt="Xiaomi Mi 11 Lite 5G">
+                            <h3>Xiaomi Mi 11 Lite 5G</h3>
+                            <h4>R$1.690</h4>
+                            <p>em 10x R$169 sem juros</p>
+                        </div>
+                        <button class="bt-comprar">Compre já!</button>
+                    </div>
                 </div>
-                <div class="carrossel-item">
-                    <img src="/Assets/Apple iPhone 13 128GB.png" alt="iPhone 13 128GB">
-                    <h3>Apple iPhone 13 128GB</h3>
-                    <h4>R$3.599,10 no Pix</h4>
-                    <p>ou 10x de R$ 399,90 sem juros no Cartão.</p>
-                </div>
-                <div class="carrossel-item">
-                    <img src="/Assets/Motorola Edge 50 Neo.png" alt="Motorola Edge 50 Neo">
-                    <h3>Motorola Edge 50 Neo</h3>
-                    <h4>R$2.159,10 no Pix</h4>
-                    <p>ou 10x de R$ 239,90 sem juros no Cartão</p>
-                </div>
-                <div class="carrossel-item">
-                    <img src="/Assets/Asus Zenfone 9 128GB.png" alt="Asus Zenfone 9 128GB">
-                    <h3>Asus Zenfone 9 128GB</h3>
-                    <h4>R$3.149,10 no Pix</h4>
-                    <p>ou 10x de R$ 349,90 sem juros no Cartão</p>
-                </div>
-                <div class="carrossel-item">
-                    <img src="/Assets/Xiaomi Mi 11 Lite 5G.png" alt="Xiaomi Mi 11 Lite 5G">
-                    <h3>Xiaomi Mi 11 Lite 5G</h3>
-                    <h4>R$1.690</h4>
-                    <p>em 10x R$169 sem juros</p>
-                </div>
-            </div>
-            <div class="buttons">
-                <button style="position: relative; z-index: -5;" id="antes">&lt;</button>
-                <button id="next">&gt;</button>
             </div>
         </div>
+        <div><button class="button-lateral button-lateral-right" id="next">&gt;</button></div>
     </div>
         <!-- sidebar -->
         <nav class="sidebar" id="sidebar">
