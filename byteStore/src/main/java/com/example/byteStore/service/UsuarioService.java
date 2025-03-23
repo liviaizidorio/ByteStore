@@ -1,9 +1,11 @@
 package main.java.com.example.byteStore.service;
 
+import main.java.com.example.byteStore.dto.LoginDtoRequest;
 import main.java.com.example.byteStore.dto.UsuarioDtoCreate;
 import main.java.com.example.byteStore.dto.UsuarioDtoUpdate;
 import main.java.com.example.byteStore.model.Usuario;
 import main.java.com.example.byteStore.repository.UsuarioRepository;
+import main.java.com.example.byteStore.util.PasswordUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +25,21 @@ public class UsuarioService {
         if (usuarioExistente != null){
             return usuario;
         }
-        //criptografar senha
         BeanUtils.copyProperties(usuarioDtoCreate,usuario);
+        usuario.setSenha(PasswordUtil.hashPassword(usuario.getSenha()));
         return usuarioRepository.save(usuario);
+    }
+
+    public Usuario login(LoginDtoRequest loginDtoResquest){
+        Usuario usuario= usuarioRepository.findByEmail(loginDtoResquest.email());
+
+        if (usuario == null){
+            return null;
+        }
+        if (!PasswordUtil.checkPassword(loginDtoResquest.senha(),usuario.getSenha())){
+            return new Usuario();
+        }
+        return usuario;
     }
 
     public Usuario atualizarUsuario(int id, UsuarioDtoUpdate usuarioDtoUpdate){
@@ -40,8 +54,8 @@ public class UsuarioService {
         if (usuarioExistente != null){
             return usuario;
         }
-        //criptografar senha
         BeanUtils.copyProperties(usuarioDtoUpdate,usuarioEncontrado,"id","pedidos","cpf");
+        usuarioEncontrado.setSenha(PasswordUtil.hashPassword(usuarioDtoUpdate.senha()));
         return usuarioRepository.save(usuarioEncontrado);
     }
     public Usuario mostrarUsuario(int id){
