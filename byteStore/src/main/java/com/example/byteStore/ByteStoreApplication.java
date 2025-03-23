@@ -1,4 +1,4 @@
-package com.example.byteStore;
+package main.java.com.example.byteStore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
