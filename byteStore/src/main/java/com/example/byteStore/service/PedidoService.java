@@ -9,6 +9,7 @@ import main.java.com.example.byteStore.repository.PedidoRepository;
 import main.java.com.example.byteStore.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -30,10 +31,11 @@ public class PedidoService {
         Usuario usuarioExistente = usuarioRepository.findById(idUsuario);
 
 
-        if(carrinhoExistente != null && usuarioExistente != null){
+        if(carrinhoExistente == null || usuarioExistente == null){
             return pedido;
         }
 
+        pedido = new Pedido(new Date(),"APROVADO",usuarioExistente,carrinhoExistente);
         return pedidoRepository.save(pedido);
     }
 

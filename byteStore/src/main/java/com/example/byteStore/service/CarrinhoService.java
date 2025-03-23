@@ -44,12 +44,14 @@ public class CarrinhoService {
         return carrinho;
 
     }
-    public Carrinho atualizarItens(int idUsuario,int idProduto, int quantidade){
+
+    public Carrinho atualizarItens(int idUsuario, int idProduto, int quantidade) {
         Produto produtoEncontrado = produtoRepository.findById(idProduto);
 
-        if (produtoEncontrado == null){
+        if (produtoEncontrado == null) {
             return null;
         }
+
         Carrinho carrinhoExistente = inicializarCarrinho(idUsuario);
 
         Optional<CarrinhoProduto> itemExistente = carrinhoExistente.getItens()
@@ -57,23 +59,19 @@ public class CarrinhoService {
                 .filter(item -> item.getProduto().getId().equals(idProduto))
                 .findFirst();
 
-        if (itemExistente.isPresent()){
-            //itemExistente.get().setQuantidade(itemExistente.get().getQuantidade() + quantidade);
+        if (itemExistente.isPresent()) {
             itemExistente.get().setQuantidade(quantidade);
-        }
-        else {
-            carrinhoExistente.getItens().add(new CarrinhoProduto(carrinhoExistente,produtoEncontrado,quantidade));
+        } else {
+            CarrinhoProduto novoItem = new CarrinhoProduto();
+            novoItem.setCarrinho(carrinhoExistente);
+            novoItem.setProduto(produtoEncontrado);
+            novoItem.setQuantidade(quantidade);
+
+            carrinhoExistente.getItens().add(novoItem);
         }
 
-        //carrinho.setValorTotal(carrinho.getItens().stream()
-        //        .mapToDouble(item -> item.getProduto().getPreco() * item.getQuantidade())
-        //        .sum());
-//
-        //return carrinhoRepository.save(carrinho);
-        double valor = produtoEncontrado.getPreco()*quantidade;
-
-        //carrinhoExistente.adicionarProduto(produtoEncontrado);
-        carrinhoExistente.setValorTotal(carrinhoExistente.getValorTotal()+valor);
+        double valor = produtoEncontrado.getPreco() * quantidade;
+        carrinhoExistente.setValorTotal(valor);
 
         return carrinhoRepository.save(carrinhoExistente);
     }

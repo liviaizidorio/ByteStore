@@ -9,6 +9,8 @@ import main.java.com.example.byteStore.util.PasswordUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class UsuarioService {
 
@@ -18,7 +20,7 @@ public class UsuarioService {
     }
 
     public Usuario cadastroUsuario(UsuarioDtoCreate usuarioDtoCreate){
-        Usuario usuarioExistente = usuarioRepository.findByEmailAndCpf(usuarioDtoCreate.email(), usuarioDtoCreate.cpf());
+        Usuario usuarioExistente = usuarioRepository.findByEmail(usuarioDtoCreate.email());
 
         var usuario = new Usuario();
 
@@ -51,10 +53,10 @@ public class UsuarioService {
         Usuario usuarioExistente = usuarioRepository.findByEmail(usuarioDtoUpdate.email());
 
         var usuario = new Usuario();
-        if (usuarioExistente != null){
+        if (usuarioExistente != null && !Objects.equals(usuarioExistente.getEmail(), usuarioEncontrado.getEmail())){
             return usuario;
         }
-        BeanUtils.copyProperties(usuarioDtoUpdate,usuarioEncontrado,"id","pedidos","cpf");
+        BeanUtils.copyProperties(usuarioDtoUpdate,usuarioEncontrado,"id","pedidos");
         usuarioEncontrado.setSenha(PasswordUtil.hashPassword(usuarioDtoUpdate.senha()));
         return usuarioRepository.save(usuarioEncontrado);
     }

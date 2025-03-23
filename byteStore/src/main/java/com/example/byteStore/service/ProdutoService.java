@@ -17,7 +17,7 @@ public class ProdutoService {
     }
 
     public Produto cadastrarProduto(ProdutoDtoCreate produtoDtoCreate) {
-        Produto produtoExistente = produtoRepository.findByName(produtoDtoCreate.name());
+        Produto produtoExistente = produtoRepository.findByNome(produtoDtoCreate.nome());
 
         if (produtoExistente != null) {
             return produtoExistente;
@@ -35,7 +35,7 @@ public class ProdutoService {
             return null;
         }
 
-        Produto produtoExistente = produtoRepository.findByName(produtoDtoUpdate.name());
+        Produto produtoExistente = produtoRepository.findByNome(produtoDtoUpdate.nome());
         if (produtoExistente != null) {
             return produtoExistente;
         }
@@ -54,7 +54,7 @@ public class ProdutoService {
 
     public Iterable<Produto> buscarProdutos(String nome, String categoria, String marca) {
         if (nome != null && !nome.isEmpty()) {
-            return produtoRepository.findByNameContaining(nome);
+            return produtoRepository.findByNomeContaining(nome);
         }
         if (categoria != null && !categoria.isEmpty()) {
             return produtoRepository.findByCategoria(categoria);
