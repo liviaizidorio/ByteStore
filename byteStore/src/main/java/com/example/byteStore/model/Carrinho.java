@@ -1,5 +1,6 @@
 package main.java.com.example.byteStore.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -15,14 +16,16 @@ import java.util.List;
 @Table(name = "carrinho")
 public class Carrinho {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_carrinho")
     private Integer id;
     @Column(name = "valor_total")
     private double valorTotal;
     @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<CarrinhoProduto> itens = new ArrayList<>();
     @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Pedido> pedidos;
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)

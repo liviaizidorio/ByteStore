@@ -1,5 +1,6 @@
 package main.java.com.example.byteStore.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,15 +15,14 @@ import java.util.List;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Integer id;
     private String nome;
     private String email;
     private String senha;
-    private String telefone;
-    private  String cpf;
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Pedido> pedidos;
 
     public Integer getId() {
@@ -41,13 +41,6 @@ public class Usuario {
         return senha;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
 
     public List<Pedido> getPedidos() {
         return pedidos;
@@ -67,14 +60,6 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public void setPedidos(List<Pedido> pedidos) {

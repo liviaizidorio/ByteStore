@@ -1,10 +1,12 @@
 package main.java.com.example.byteStore.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -12,18 +14,27 @@ import java.sql.Date;
 @Table(name = "pedido")
 public class Pedido {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pedido")
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)
+    @JsonBackReference
     private Usuario usuario;
     @ManyToOne
     @JoinColumn(name = "id_carrinho", nullable = false)
+    @JsonBackReference
     private Carrinho carrinho;
     @Column(name = "data_pedido")
     private Date dataPedido;
     private String status;
+
+    public Pedido(Date date, String status, Usuario usuario, Carrinho carrinho) {
+        this.dataPedido = date;
+        this.status=status;
+        this.usuario = usuario;
+        this.carrinho = carrinho;
+    }
 
     public Integer getId() {
         return id;
