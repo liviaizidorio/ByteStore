@@ -1,7 +1,7 @@
-package main.java.com.example.byteStore.repository;
+package com.example.byteStore.repository;
 
-import main.java.com.example.byteStore.model.Carrinho;
-import main.java.com.example.byteStore.model.Usuario;
+import com.example.byteStore.model.Carrinho;
+import com.example.byteStore.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,12 +1,12 @@
-package main.java.com.example.byteStore.service;
+package com.example.byteStore.service;
 
-import main.java.com.example.byteStore.dto.PedidoDtoUpdate;
-import main.java.com.example.byteStore.model.Carrinho;
-import main.java.com.example.byteStore.model.Pedido;
-import main.java.com.example.byteStore.model.Usuario;
-import main.java.com.example.byteStore.repository.CarrinhoRepository;
-import main.java.com.example.byteStore.repository.PedidoRepository;
-import main.java.com.example.byteStore.repository.UsuarioRepository;
+import com.example.byteStore.dto.PedidoDtoUpdate;
+import com.example.byteStore.model.Carrinho;
+import com.example.byteStore.model.Pedido;
+import com.example.byteStore.model.Usuario;
+import com.example.byteStore.repository.CarrinhoRepository;
+import com.example.byteStore.repository.PedidoRepository;
+import com.example.byteStore.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;

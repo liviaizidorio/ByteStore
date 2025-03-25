@@ -1,11 +1,11 @@
-package main.java.com.example.byteStore.service;
+package com.example.byteStore.service;
 
-import main.java.com.example.byteStore.dto.LoginDtoRequest;
-import main.java.com.example.byteStore.dto.UsuarioDtoCreate;
-import main.java.com.example.byteStore.dto.UsuarioDtoUpdate;
-import main.java.com.example.byteStore.model.Usuario;
-import main.java.com.example.byteStore.repository.UsuarioRepository;
-import main.java.com.example.byteStore.util.PasswordUtil;
+import com.example.byteStore.dto.LoginDtoRequest;
+import com.example.byteStore.dto.UsuarioDtoCreate;
+import com.example.byteStore.dto.UsuarioDtoUpdate;
+import com.example.byteStore.model.Usuario;
+import com.example.byteStore.repository.UsuarioRepository;
+import com.example.byteStore.util.PasswordUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

@@ -1,12 +1,12 @@
-package main.java.com.example.byteStore.controller;
+package com.example.byteStore.controller;
 
 import jakarta.validation.Valid;
-import main.java.com.example.byteStore.dto.LoginDtoRequest;
-import main.java.com.example.byteStore.dto.UsuarioDtoCreate;
-import main.java.com.example.byteStore.dto.UsuarioDtoUpdate;
-import main.java.com.example.byteStore.model.Usuario;
-import main.java.com.example.byteStore.service.UsuarioService;
-import main.java.com.example.byteStore.util.ErrorHandler;
+import com.example.byteStore.dto.LoginDtoRequest;
+import com.example.byteStore.dto.UsuarioDtoCreate;
+import com.example.byteStore.dto.UsuarioDtoUpdate;
+import com.example.byteStore.model.Usuario;
+import com.example.byteStore.service.UsuarioService;
+import com.example.byteStore.util.ErrorHandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

@@ -1,9 +1,9 @@
-package main.java.com.example.byteStore.service;
+package com.example.byteStore.service;
 
-import main.java.com.example.byteStore.dto.ProdutoDtoCreate;
-import main.java.com.example.byteStore.dto.ProdutoDtoUpdate;
-import main.java.com.example.byteStore.model.Produto;
-import main.java.com.example.byteStore.repository.ProdutoRepository;
+import com.example.byteStore.dto.ProdutoDtoCreate;
+import com.example.byteStore.dto.ProdutoDtoUpdate;
+import com.example.byteStore.model.Produto;
+import com.example.byteStore.repository.ProdutoRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

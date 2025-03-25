@@ -1,4 +1,4 @@
-package main.java.com.example.byteStore.model;
+package com.example.byteStore.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;

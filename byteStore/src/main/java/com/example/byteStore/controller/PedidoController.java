@@ -1,12 +1,15 @@
-package main.java.com.example.byteStore.controller;
+package com.example.byteStore.controller;
 
-import main.java.com.example.byteStore.dto.PedidoDtoUpdate;
-import main.java.com.example.byteStore.model.Pedido;
-import main.java.com.example.byteStore.service.PedidoService;
+import com.example.byteStore.dto.PedidoDtoUpdate;
+import com.example.byteStore.model.Pedido;
+import com.example.byteStore.service.PedidoService;
+import com.example.byteStore.util.ErrorHandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/pedido")
@@ -27,9 +30,10 @@ public class PedidoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Pedido> atualizarPedido(@PathVariable(value = "id") Integer id, @RequestBody PedidoDtoUpdate pedidoDtoUpdate, BindingResult bindingResult) {
+    public ResponseEntity<?> atualizarPedido(@PathVariable(value = "id") Integer id, @RequestBody PedidoDtoUpdate pedidoDtoUpdate, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            List<String> errors = ErrorHandler.processValidationErrors(bindingResult);
+            return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
         }
         Pedido pedidoAtualizado =pedidoService.atualizarPedido(id,pedidoDtoUpdate);
         if(pedidoAtualizado == null){

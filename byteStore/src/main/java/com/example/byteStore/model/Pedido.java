@@ -1,15 +1,12 @@
-package main.java.com.example.byteStore.model;
+package com.example.byteStore.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
-@NoArgsConstructor
 @Entity
 @Table(name = "pedido")
 public class Pedido {
@@ -34,6 +31,9 @@ public class Pedido {
         this.status=status;
         this.usuario = usuario;
         this.carrinho = carrinho;
+    }
+
+    public Pedido() {
     }
 
     public Integer getId() {

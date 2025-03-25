@@ -1,4 +1,4 @@
-package main.java.com.example.byteStore.model;
+package com.example.byteStore.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "carrinho_produto")
@@ -31,6 +30,9 @@ public class CarrinhoProduto {
     public CarrinhoProduto( Carrinho carrinho, Produto produto) {
         this.carrinho = carrinho;
         this.produto = produto;
+    }
+
+    public CarrinhoProduto() {
     }
 
     public CarrinhoProduto(Carrinho carrinho, Produto produto, int quantidade) {

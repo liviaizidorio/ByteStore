@@ -1,14 +1,17 @@
-package main.java.com.example.byteStore.controller;
+package com.example.byteStore.controller;
 
+import com.example.byteStore.util.ErrorHandler;
 import jakarta.validation.Valid;
-import main.java.com.example.byteStore.dto.ProdutoDtoCreate;
-import main.java.com.example.byteStore.dto.ProdutoDtoUpdate;
-import main.java.com.example.byteStore.model.Produto;
-import main.java.com.example.byteStore.service.ProdutoService;
+import com.example.byteStore.dto.ProdutoDtoCreate;
+import com.example.byteStore.dto.ProdutoDtoUpdate;
+import com.example.byteStore.model.Produto;
+import com.example.byteStore.service.ProdutoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/produto")
@@ -23,7 +26,8 @@ public class ProdutoController {
     @PostMapping("/")
     public ResponseEntity<?> cadastrarProduto(@Valid @RequestBody ProdutoDtoCreate produtoDtoCreate, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            List<String> errors = ErrorHandler.processValidationErrors(bindingResult);
+            return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
         }
 
         Produto produtoCriado = produtoService.cadastrarProduto(produtoDtoCreate);
@@ -37,7 +41,8 @@ public class ProdutoController {
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizarProduto(@PathVariable(value = "id") Integer id, @Valid @RequestBody ProdutoDtoUpdate produtoDtoUpdate, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            List<String> errors = ErrorHandler.processValidationErrors(bindingResult);
+            return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
         }
 
         Produto produtoAtualizado = produtoService.atualizarProduto(id, produtoDtoUpdate);

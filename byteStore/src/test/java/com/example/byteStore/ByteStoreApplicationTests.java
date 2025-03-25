@@ -1,4 +1,4 @@
-package test.java.com.example.byteStore;
+package com.example.byteStore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

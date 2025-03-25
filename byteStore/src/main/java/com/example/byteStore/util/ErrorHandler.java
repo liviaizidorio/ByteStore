@@ -1,4 +1,4 @@
-package main.java.com.example.byteStore.util;
+package com.example.byteStore.util;
 
 import org.springframework.validation.BindingResult;
 
