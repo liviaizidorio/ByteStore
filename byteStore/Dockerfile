@@ -5,7 +5,7 @@ FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
 # Copia o arquivo JAR gerado para o contêiner
-COPY target/*.jar app.jar
+COPY target/byteStore-0.0.1-SNAPSHOT.jar app.jar
 
 # Expõe a porta usada pelo Spring Boot (padrão 8080)
 EXPOSE 8080
