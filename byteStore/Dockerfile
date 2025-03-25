@@ -1,17 +1,14 @@
-# Use uma imagem oficial do OpenJDK como base
-FROM ubuntu:latest AS build
+# Usa uma imagem do OpenJDK 21 como base
+FROM eclipse-temurin:21-jdk-alpine
 
-RUN apt-get update
-RUN apt-get install openjdk-21-jdk -y
+# Define o diretório de trabalho dentro do contêiner
+WORKDIR /app
 
-COPY . .
+# Copia o arquivo JAR gerado para o contêiner
+COPY target/*.jar app.jar
 
-RUN apt-get install maven -y
-RUN mvn clean install
-
-FROM openjdk:21-jdk-slim
-
+# Expõe a porta usada pelo Spring Boot (padrão 8080)
 EXPOSE 8080
 
-COPY --from=build /target/APIproduct-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT [ "java", "-jar", "app.jar" ]
+# Define o comando para rodar a aplicação
+CMD ["java", "-jar", "app.jar"]
