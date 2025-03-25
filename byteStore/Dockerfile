@@ -1,17 +1,14 @@
-# Use uma imagem oficial do OpenJDK como base
-FROM ubuntu:latest AS build
+# Usar a imagem oficial do OpenJDK 21
+FROM eclipse-temurin:21-jdk
 
-RUN apt-get update
-RUN apt-get install openjdk-21-jdk -y
+# Definir diretório de trabalho
+WORKDIR /app
 
-COPY . .
+# Copiar o JAR do seu projeto para dentro do contêiner
+COPY target/*.jar app.jar
 
-RUN apt-get install maven -y
-RUN mvn clean install
-
-FROM openjdk:21
-
+# Expor a porta da aplicação (mude se necessário)
 EXPOSE 8080
 
-COPY --from=build /target/byteStore-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT [ "java", "-jar", "app.jar" ]
+# Comando para rodar a aplicação
+ENTRYPOINT ["java", "-jar", "app.jar"]
