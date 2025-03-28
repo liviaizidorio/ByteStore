@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "https://bytestore-02o5.onrender.com")
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {

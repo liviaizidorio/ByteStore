@@ -19,7 +19,7 @@ public class CarrinhoController {
         this.carrinhoService = carrinhoService;
     }
 
-    @PutMapping(value = "{idUsuario}/{idProduto}/{idQuantidade}")
+    @PutMapping(value = "/{idUsuario}/{idProduto}/{idQuantidade}")
     public ResponseEntity<?> atualizarItens(@PathVariable(value = "idUsuario") int idUsuario,@PathVariable(value = "idProduto") int idProduto, @PathVariable(value = "idQuantidade") int idQuantidade){
         Carrinho carrinho = carrinhoService.atualizarItens(idUsuario,idProduto,idQuantidade);
 
