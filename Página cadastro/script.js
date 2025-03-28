@@ -6,11 +6,6 @@ const form = document.getElementById('formulario-container');
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // Obter os dados do formulário
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
             // Exibir o popup
             popup.style.display = 'block';
             caixa.style.display = 'block';
