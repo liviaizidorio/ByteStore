@@ -279,3 +279,58 @@ h2 {
 .carrossel-item:hover .bt-comprar {
     opacity: 1;
 }
+
+/* popup */
+.caixa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+    display: none;
+    width: 350px; 
+}
+
+.popup h2 {
+    color: #0056b3; 
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.popup p {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.popup button {
+    background-color: #ffda22; 
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.popup button:hover {
+    background-color: #f2d01a; 
+}

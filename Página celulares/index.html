@@ -22,7 +22,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#"><img src="https://raw.githubusercontent.com/liviaizidorio/ByteStore/refs/heads/feature/frontend/Assets/Icone%20Pedido.png" alt=""></a></li>
+                <li><a href="/Página pedido/index.html"><img src="https://raw.githubusercontent.com/liviaizidorio/ByteStore/refs/heads/feature/frontend/Assets/Icone%20Pedido.png" alt=""></a></li>
                 <li><a href="/Página carrinho/index.html"><img src="https://raw.githubusercontent.com/liviaizidorio/ByteStore/refs/heads/feature/frontend/Assets/Icone%20Carrinho.png" alt=""></a></li>
                 <li><a href="/Página usuários/index.html"><img src="https://raw.githubusercontent.com/liviaizidorio/ByteStore/refs/heads/feature/frontend/Assets/Icone%20Perfil.png" alt=""></a></li>
             </ul>
@@ -41,7 +41,7 @@
                             <h4>R$1.529</h4>
                             <p>em 10x R$152,90 sem juros</p>
                         </div>
-                        <button class="bt-comprar">Compre já!</button>
+                        <button class="bt-comprar" id="bt-comprar">Compre já!</button>
                     </div>
                     <div class="carrossel-item">
                         <div>
@@ -50,7 +50,7 @@
                             <h4>R$3.599,10 no Pix</h4>
                             <p>ou 10x de R$ 399,90 sem juros no Cartão.</p>
                         </div>
-                        <button class="bt-comprar">Compre já!</button>
+                        <button class="bt-comprar" id="bt-comprar">Compre já!</button>
                     </div>
                     <div class="carrossel-item">
                         <div>
@@ -59,7 +59,7 @@
                             <h4>R$2.159,10 no Pix</h4>
                             <p>ou 10x de R$ 239,90 sem juros no Cartão</p>
                         </div>
-                        <button class="bt-comprar">Compre já!</button>
+                        <button class="bt-comprar" id="bt-comprar">Compre já!</button>
                     </div>
                     <div class="carrossel-item">
                         <div>
@@ -68,7 +68,7 @@
                             <h4>R$3.149,10 no Pix</h4>
                             <p>ou 10x de R$ 349,90 sem juros no Cartão</p>
                         </div>
-                        <button class="bt-comprar">Compre já!</button>
+                        <button class="bt-comprar" id="bt-comprar">Compre já!</button>
                     </div>
                     <div class="carrossel-item">
                         <div>
@@ -77,7 +77,7 @@
                             <h4>R$1.690</h4>
                             <p>em 10x R$169 sem juros</p>
                         </div>
-                        <button class="bt-comprar">Compre já!</button>
+                        <button class="bt-comprar" id="bt-comprar">Compre já!</button>
                     </div>
                 </div>
             </div>
@@ -99,6 +99,12 @@
                 </ul>
             </div>
         </nav>
+        <div class="caixa" id="caixa"></div>
+    <div class="popup" id="popup">
+        <h2>Pedido cadastrado</h2>
+        <p>Vá para sua página de pedidos</p>
+        <button id="fecha-popup">OK</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

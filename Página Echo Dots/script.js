@@ -56,3 +56,26 @@ document.querySelectorAll('.carrossel-item').forEach(img => {
         img.style.transform = 'scale(1)'; 
     });
 });
+
+const btCompra = document.querySelectorAll(".bt-comprar"); 
+const popup = document.getElementById("popup");
+const caixa = document.getElementById("caixa");
+const fecharPopup = document.getElementById("fecha-popup");
+
+btCompra.forEach(botao => {
+    botao.addEventListener('click', function() {
+        document.getElementById("popup").style.display = 'block';
+        document.getElementById("caixa").style.display = 'block';
+    });
+});
+
+
+fecharPopup.addEventListener("click", function() {
+    popup.style.display = "none";
+    caixa.style.display = "none";
+});
+// Fechar o popup ao clicar fora dele
+caixa.addEventListener("click", function() {
+    popup.style.display = "none";
+    caixa.style.display = "none";
+});
