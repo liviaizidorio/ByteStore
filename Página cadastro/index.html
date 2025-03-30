@@ -10,12 +10,12 @@
     <div class="container">
         <div class="lado-um">
             <h1>Bem vindo!</h1>
-            
+
         </div>
         <div class="lado-dois">
             <h2>Criar conta</h2>
             <p>Registre-se com o seu e-mail</p>
-            <form id="formulario-container">
+            <form id="formulario-container" onsubmit="cadastrarUsuario(event)">
                 <div class="formulario">
                     <label for="name">Nome</label>
                     <input type="text" id="name" name="name"  placeholder="Seu nome" required>
@@ -26,19 +26,20 @@
                 </div>
                 <div class="formulario">
                     <label for="senha">Senha</label>
-                    <input type="senha" id="senha" name="senha" placeholder="Sua senha" required>
+                    <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
                 </div>
-                <button onclick="cadastrarUsuario()" type="submit" id="cadastro">Cadastrar-se</button>
+                <button type="submit" id="cadastro">Cadastrar-se</button>
             </form>
         </div>
     </div>
 
-    <div class="caixa" id="caixa"></div>
+    <div onclick="fora()" class="caixa" id="caixa"></div>
     <div class="popup" id="popup">
         <h2>Cadastro Realizado!</h2>
         <p>Sua conta foi criada com sucesso.</p>
-        <button id="fecha-popup">OK</button>
+        <button onclick="fecharPopup()" type="button" id="fecha-popup">OK</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
