@@ -36,25 +36,38 @@ const buyAllButton = document.querySelector('.btn');
 
 // Listar todos os produtos no carrinho que estão ativos
 
-async function listarAtivos(url) {
-    try {
-        const resposta = await fetch(url);
-        const dados = await resposta.json();
+function get(url){
+    let request=new XMLHttpRequest()
+    request.open("GET", url, false)
+    request.send()
+    return request.responseText
 
-        const ativos = dados.filter(item => item.status === "ativa");
-
-        const tbody = document.querySelector("#tabela tbody");
-        tbody.innerHTML = ""; // Limpa a tabela antes de adicionar os itens
-
-        ativos.forEach(item => {
-            const linha = document.createElement("div");
-            linha.innerHTML = `<img>${item.url_imagem}</img><h3>${item.nome}</h3><div class="cart-item-preco">${item.preco}</div>`;
-            tbody.appendChild(linha);
-        });
-    } catch (erro) {
-        console.error("Erro ao buscar os dados:", erro);
-    }
 }
 
+function dados(){
+    dado= get("https://bytestore-eddr.onrender.com/carrinho/{idCarrinho}")
+    produto= JSON.parse(dado);
+    console.log(produto)
+}
+// async function listarAtivos(url) {
+//     try {
+//         const resposta = await fetch(url);
+//         const dados = await resposta.json();
+
+//         const ativos = dados.filter(item => item.status === "ativa");
+
+//         const tbody = document.querySelector("#tabela tbody");
+//         tbody.innerHTML = ""; // Limpa a tabela antes de adicionar os itens
+
+//         ativos.forEach(item => {
+//             const linha = document.createElement("div");
+//             linha.innerHTML = `<img>${item.url_imagem}</img><h3>${item.nome}</h3><div class="cart-item-preco">${item.preco}</div>`;
+//             tbody.appendChild(linha);
+//         });
+//     } catch (erro) {
+//         console.error("Erro ao buscar os dados:", erro);
+//     }
+// }
+
 // Chamada do método com a URL da API
-listarAtivos("https://bytestore-eddr.onrender.com/carrinho/{idCarrinho}");
+dados()

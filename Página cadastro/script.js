@@ -25,7 +25,7 @@ function doPost(url, body) {
 function cadastrarUsuario(event) {
     event.preventDefault();
     console.log("cadastrarUsuario foi chamado!"); 
-    let url = "https://bytestore-eddr.onrender.com/usuario/";
+    let url = "https://bytestore-eddr.onrender.com/usuario/post";
         
     let nome = document.getElementById('name').value;
     let email = document.getElementById('email').value;
