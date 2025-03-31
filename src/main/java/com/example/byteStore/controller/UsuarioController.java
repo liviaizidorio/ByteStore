@@ -24,7 +24,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping(value = "/")
+    @PostMapping(value = "/post")
     public ResponseEntity<?> cadastrarUsuario(@Valid @RequestBody UsuarioDtoCreate usuarioDtoCreate, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             List<String> errors = ErrorHandler.processValidationErrors(bindingResult);
