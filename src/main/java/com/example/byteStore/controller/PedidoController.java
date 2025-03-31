@@ -10,7 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "https://127.0.0.1:5500")
 @RestController
 @RequestMapping("/pedido")
 public class PedidoController {
