@@ -13,7 +13,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/usuario/**")
-                        .allowedOrigins("https://bytestore-02o5.onrender.com")
+                        .allowedOrigins("https://127.0.0.1:5500")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
             }
