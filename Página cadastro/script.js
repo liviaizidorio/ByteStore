@@ -34,6 +34,12 @@ function cadastrarUsuario(event) {
     .catch(error => {
         console.error("Erro na requisição POST:", error);
     });
+    app.use((req, res, next) => {
+        res.header('Access-Control-Allow-Origin', '*'); // ou especifique seu domínio
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        next();
+      });
+      
 }
 
 
