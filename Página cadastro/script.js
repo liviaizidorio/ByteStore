@@ -1,51 +1,41 @@
-function doPost(url, body) {
-    console.log("Enviando:", body); // Debug: Mostra o corpo da requisição
-    let request = new XMLHttpRequest();
-    request.open("POST", url, true);
-    request.setRequestHeader("Content-type", "application/json");
-        
-    request.onload = function() {
-        console.log("Status:", this.status); // Debug: Mostra o status da resposta
-        console.log("Resposta:", this.responseText); // Debug: Mostra a resposta completa
-        if (this.status >= 200 && this.status < 300) { // Sucesso!
-            console.log("Requisição POST bem-sucedida!");
-        } else {
-            console.error("Erro na requisição POST. Status:", this.status);
-        }
-    };
-        
-    request.onerror = function() {
-        console.error("Erro de rede ao fazer a requisição.");
-    };
-        
-    request.send(JSON.stringify(body));
-}
-        
-
 function cadastrarUsuario(event) {
     event.preventDefault();
-    console.log("cadastrarUsuario foi chamado!"); 
-    let url = "https://bytestore-eddr.onrender.com/usuario/post";
-        
-    let nome = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let senha = document.getElementById('senha').value;
-        
-    // if (!nome || !email || !senha) {
-    //     alert("Preencha todos os campos!");
-    //     return;
-    // }        
+    console.log("cadastrarUsuario foi chamado!");
 
-    // Não precisa usar localStorage para isso, a menos que você precise dos dados depois
-    let body = {
-        "name": nome,
-        "email": email,
-        "senha": senha
+    const url = "https://bytestore-eddr.onrender.com/usuario/post";
+    const nome = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+
+    const body = {
+        name: nome,
+        email: email,
+        senha: senha
     };
-        
-    console.log("Corpo da requisição:", body); // Debug
-    doPost(url, body);
+
+    console.log("Corpo da requisição:", body);
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+    })
+    .then(response => {
+        console.log("Status:", response.status);
+        return response.text(); // ou response.json() se o backend responder com JSON
+    })
+    .then(data => {
+        console.log("Resposta:", data);
+        console.log("Requisição POST bem-sucedida!");
+        exibir();
+    })
+    .catch(error => {
+        console.error("Erro na requisição POST:", error);
+    });
 }
+
 
 // Exibir o popup
 function exibir(){
